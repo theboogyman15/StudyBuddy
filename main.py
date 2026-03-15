@@ -13,6 +13,11 @@ def chat(message, history):
         for h in history
     ]
     all_messages = [{"role": "system", "content": system}] + formatted_history + [{"role": "user", "content": message}]
+    stream = ollama.chat(model=model, messages=all_messages, stream=True)
+    response = ""
+    for chunk in stream:
+        response += chunk["message"]["content"]
+        yield response
     response = ollama.chat(model=model, messages=all_messages)
     return response["message"]["content"]
 
