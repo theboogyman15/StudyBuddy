@@ -1,0 +1,7 @@
+# Chatbot dependencies
+
+ollama        # Python client for Ollama LLM
+gradio        # UI for chatbot interface
+python-dotenv # Load environment variables from .env
+
+# also run ollama pull lamma3.2 as ollama needs to run locally the model lamma 
